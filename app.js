@@ -1,9 +1,12 @@
 const express = require("express");
-const { getUsers, postUser } = require("./controllers/index.controller");
+const { postUser, getUserById } = require("./controllers/index.controller");
 const app = express();
-app.use(express.json());
+const cors = require("cors");
 
-app.get("/api/users", getUsers);
+app.use(express.json());
+app.use(cors());
+
+app.get("/api/users/:user_id", getUserById);
 app.post("/api/users", postUser);
 
 module.exports = app;
