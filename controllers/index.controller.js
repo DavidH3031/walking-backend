@@ -4,8 +4,10 @@ exports.getUsers = (req, res, next) => {};
 
 exports.postUser = (req, res, next) => {
   const user = req.body;
-  console.log(user);
-  insertUser(user).then((newUser) => {
-    console.log(newUser);
-  });
+  insertUser(user)
+    .then((newUser) => {
+      console.log(newUser);
+      res.status(201).send(newUser);
+    })
+    .catch(next);
 };
