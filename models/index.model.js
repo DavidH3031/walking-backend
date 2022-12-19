@@ -12,4 +12,9 @@ function fetchUserById(id) {
   return user;
 }
 
-module.exports = { insertUser, fetchUserById };
+function deleteUserById(id) {
+  const user = User.findOneAndDelete({ uid: id });
+  return user;
+}
+
+module.exports = { insertUser, fetchUserById, deleteUserById };
