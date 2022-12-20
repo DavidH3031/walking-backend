@@ -17,4 +17,9 @@ function deleteUserById(id) {
   return user;
 }
 
-module.exports = { insertUser, fetchUserById, deleteUserById };
+function changeUserById(id, body) {
+  const user = User.findOneAndUpdate({ uid: id }, body);
+  return user;
+}
+
+module.exports = { insertUser, fetchUserById, deleteUserById, changeUserById };
